@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, ArrowRight, Download } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Download } from 'lucide-react';
 import { useTransactionSummary } from '../context/TransactionContext';
 import { DateRange } from '../types';
 import { formatCurrency } from '../../../utils/formatters';
@@ -290,7 +290,7 @@ function Reports() {
           <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
             Cash Flow Analysis
           </h3>
-          <CashFlowChart data={chartData} timeframe={timeframe} currency={globalCurrency} />
+          <CashFlowChart data={chartData} currency={globalCurrency} />
         </div>
       </div>
     </div>

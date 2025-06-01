@@ -1,5 +1,3 @@
-import { AVAILABLE_CURRENCIES } from './formatters';
-
 export interface ExchangeRates {
   [key: string]: number;
 }

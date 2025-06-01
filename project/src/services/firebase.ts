@@ -1,5 +1,5 @@
 import { db } from '../config/firebase';
-import { doc, getDoc, setDoc, updateDoc, collection } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { UserProfile, UserData } from '../types/user';
 
 export async function getUserData(userId: string): Promise<UserData | null> {

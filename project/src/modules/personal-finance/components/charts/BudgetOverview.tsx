@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BarChart,
   Bar,
@@ -10,7 +9,6 @@ import {
   ResponsiveContainer,
   ReferenceLine
 } from 'recharts';
-import { useTransactions } from '../../context/TransactionContext';
 import { formatCurrency } from '../../../../utils/formatters';
 
 interface Props {
@@ -67,7 +65,7 @@ export function BudgetOverview({ budgets, currency }: Props) {
               stroke="#4B5563"
               strokeDasharray="3 3"
               ifOverflow="extendDomain"
-              label={null}
+              label={undefined}
               segment={[]}
             />
           ))}

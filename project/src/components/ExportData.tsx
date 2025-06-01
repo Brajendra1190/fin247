@@ -1,7 +1,7 @@
 import React from 'react';
 import { Download, FileSpreadsheet } from 'lucide-react';
 import { FinancialStatement, FinancialRatios } from '../types/financial';
-import { formatNumber, formatCurrency } from '../utils/formatters';
+import { formatCurrency } from '../utils/formatters';
 import { exportToExcel } from '../utils/excelExport';
 
 interface Props {

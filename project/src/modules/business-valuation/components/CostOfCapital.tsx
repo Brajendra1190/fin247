@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calculator, ArrowRight } from 'lucide-react';
 import { calculateWACC, calculateCostOfEquity } from '../utils/costOfCapitalCalculations';
 import { AVAILABLE_CURRENCIES } from '../../../utils/formatters';

@@ -17,7 +17,7 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
   const { dispatch } = useTransactions();
   const [formData, setFormData] = useState<Omit<Transaction, 'id'>>({
     date: new Date().toISOString().split('T')[0],
-    amount: '',
+    amount: 0,
     type: 'expense',
     category: '',
     description: '',
@@ -32,7 +32,7 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
     if (transaction) {
       setFormData({
         date: transaction.date.split('T')[0],
-        amount: transaction.amount.toString(),
+        amount: transaction.amount,
         type: transaction.type,
         category: transaction.category,
         description: transaction.description,
@@ -45,7 +45,7 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
     } else {
       setFormData({
         date: new Date().toISOString().split('T')[0],
-        amount: '',
+        amount: 0,
         type: 'expense',
         category: '',
         description: '',
@@ -77,10 +77,14 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
         dispatch({
           type: 'UPDATE_TRANSACTION',
           payload: {
-            ...formData,
             id: transaction.id,
             category: finalCategory,
-            amount: finalAmount
+            amount: finalAmount,
+            type: formData.type,
+            date: formData.date,
+            description: formData.description,
+            tags: formData.tags,
+            recurringId: formData.recurringId || undefined
           }
         });
         toast.success('Transaction updated successfully');
@@ -88,9 +92,14 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
         dispatch({
           type: 'ADD_TRANSACTION',
           payload: {
-            ...formData,
+            id: crypto.randomUUID(),
             category: finalCategory,
-            amount: finalAmount
+            amount: finalAmount,
+            type: formData.type,
+            date: formData.date,
+            description: formData.description,
+            tags: formData.tags,
+            recurringId: undefined
           }
         });
         toast.success('Transaction added successfully');
@@ -204,7 +213,7 @@ function TransactionModal({ isOpen, onClose, transaction }: Props) {
               <input
                 type="number"
                 value={formData.amount}
-                onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })}
                 className="input-field flex-1"
                 min="0"
                 step="0.01"

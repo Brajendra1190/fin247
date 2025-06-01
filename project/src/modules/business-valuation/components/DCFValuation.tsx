@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Calculator, ArrowRight, PlusCircle, MinusCircle, Settings } from 'lucide-react';
+import { useState } from 'react';
+import { Calculator, ArrowRight, PlusCircle, MinusCircle } from 'lucide-react';
 import { CashFlowItem, DCFInputs, ProjectedCashFlow } from '../types/dcf';
 import { nanoid } from 'nanoid';
 import { AVAILABLE_CURRENCIES } from '../../../utils/formatters';

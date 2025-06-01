@@ -1,4 +1,3 @@
-import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { useTransactions } from '../../context/TransactionContext';
 import { formatCurrency } from '../../../../utils/formatters';
@@ -42,7 +41,7 @@ const FALLBACK_COLORS = [
 ];
 
 export function CategoryDistributionChart({ data, currency }: Props) {
-  const { state } = useTransactions();
+  const { } = useTransactions();
   
   const chartData = Object.entries(data)
     .map(([category, amount]) => ({

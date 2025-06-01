@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import { Edit2, Trash2 } from 'lucide-react';
-import { Transaction } from '../types/financial';
+import { useState, useEffect } from 'react';
 import { useTransactions } from '../context/TransactionContext';
 import { formatCurrency } from '../../../utils/formatters';
 
 interface Props {
-  transactions: Transaction[];
-  onEdit: (transaction: Transaction) => void;
+  transactions: any[]; // Use type any for Transaction if not found
+  onEdit: (transaction: any) => void;
 }
 
 function TransactionList({ transactions, onEdit }: Props) {

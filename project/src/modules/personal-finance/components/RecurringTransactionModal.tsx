@@ -42,7 +42,7 @@ interface Props {
 function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
   const { dispatch } = useTransactions();
   const [formData, setFormData] = useState<Omit<RecurringTransaction, 'id'>>({
-    amount: '',
+    amount: 0,
     type: 'expense',
     category: '',
     description: '',
@@ -56,7 +56,7 @@ function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
   useEffect(() => {
     if (transaction) {
       setFormData({
-        amount: transaction.amount.toString(),
+        amount: transaction.amount,
         type: transaction.type,
         category: transaction.category,
         description: transaction.description,
@@ -71,7 +71,7 @@ function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
       }
     } else {
       setFormData({
-        amount: '',
+        amount: 0,
         type: 'expense',
         category: '',
         description: '',
@@ -89,7 +89,7 @@ function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
     const finalCategory = formData.category === 'Other' ? customCategory : formData.category;
     
     // Convert amount if currencies are different
-    let finalAmount = Number(formData.amount);
+    let finalAmount = formData.amount;
     if (inputCurrency !== globalCurrency) {
       try {
         finalAmount = await convertAmount(finalAmount, inputCurrency, globalCurrency);
@@ -113,6 +113,7 @@ function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
       dispatch({
         type: 'ADD_RECURRING',
         payload: {
+          id: crypto.randomUUID(),
           ...formData,
           category: finalCategory,
           amount: finalAmount
@@ -209,7 +210,7 @@ function RecurringTransactionModal({ isOpen, onClose, transaction }: Props) {
               <input
                 type="number"
                 value={formData.amount}
-                onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })}
                 className="input-field flex-1"
                 min="0"
                 step="0.01"

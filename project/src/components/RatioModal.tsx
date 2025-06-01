@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Info, AlertTriangle, CheckCircle } from 'lucide-react';
+import { X, AlertTriangle, CheckCircle } from 'lucide-react';
 import { getRatioAnalysis } from '../utils/ratioCalculations';
 
 interface RatioModalProps {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Filter, Search, BarChart2, List } from 'lucide-react';
 import { useTransactions } from '../context/TransactionContext';
 import TransactionList from './TransactionList';

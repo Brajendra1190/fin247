@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calculator, ArrowRight, PlusCircle, MinusCircle } from 'lucide-react';
 import { AVAILABLE_CURRENCIES } from '../../../../utils/formatters';
 import { calculatePaybackPeriod, calculateDiscountedPaybackPeriod } from '../../utils/paybackCalculations';

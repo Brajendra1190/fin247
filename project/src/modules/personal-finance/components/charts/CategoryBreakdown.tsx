@@ -1,6 +1,4 @@
-import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { useTransactions } from '../../context/TransactionContext';
 import { formatCurrency } from '../../../../utils/formatters';
 
 interface Props {

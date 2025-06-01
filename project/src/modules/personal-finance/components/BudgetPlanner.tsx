@@ -93,6 +93,7 @@ function BudgetPlanner() {
       dispatch({
         type: 'ADD_BUDGET',
         payload: {
+          id: crypto.randomUUID(),
           category: finalCategory,
           amount: finalAmount,
           period: budgetPeriod,

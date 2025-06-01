@@ -44,8 +44,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       await createUserProfile(result.user.uid, {
-        email: result.user.email,
-        displayName: result.user.displayName,
+        email: result.user.email ?? undefined,
+        displayName: result.user.displayName ?? undefined,
         defaultCurrency: 'USD',
         settings: {
           darkMode: false,
@@ -82,8 +82,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (!userData) {
         // Create new user profile if it doesn't exist
         await createUserProfile(user.uid, {
-          email: user.email,
-          displayName: user.displayName,
+          email: user.email ?? undefined,
+          displayName: user.displayName ?? undefined,
           defaultCurrency: 'USD',
           settings: {
             darkMode: false,

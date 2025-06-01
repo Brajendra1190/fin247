@@ -1,21 +1,3 @@
-interface ExcelStyles {
-  headerStyle: {
-    font: { bold: boolean; color: { rgb: string } };
-    fill: { fgColor: { rgb: string } };
-    alignment: { horizontal: string };
-  };
-  subHeaderStyle: {
-    font: { bold: boolean };
-    fill: { fgColor: { rgb: string } };
-  };
-  currencyStyle: {
-    numFmt: string;
-  };
-  percentStyle: {
-    numFmt: string;
-  };
-}
-
 export const exportToExcel = (financialData: any, ratios: any) => {
   // Create CSV content
   const rows = [

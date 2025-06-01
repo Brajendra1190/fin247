@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   LineChart,
   Line,
@@ -69,3 +68,4 @@ export function SpendingTrends({ data, currency }: Props) {
     </div>
   );
 }
+

@@ -285,9 +285,9 @@ export function TransactionProvider({ children }: { children: React.ReactNode })
       }
     };
 
-    window.addEventListener('currencyChange', handleCurrencyChange as EventListener);
+    window.addEventListener('currencyChange', handleCurrencyChange as unknown as EventListener);
     return () => {
-      window.removeEventListener('currencyChange', handleCurrencyChange as EventListener);
+      window.removeEventListener('currencyChange', handleCurrencyChange as unknown as EventListener);
     };
   }, [state.baseCurrency, isConverting]);
 

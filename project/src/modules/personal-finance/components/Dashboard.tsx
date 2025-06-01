@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowUp, ArrowDown, Calendar } from 'lucide-react';
-import { useTransactions, useTransactionSummary, useBudgetProgress } from '../context/TransactionContext';
+import { useTransactionSummary, useBudgetProgress } from '../context/TransactionContext';
 import { CategoryBreakdown } from './charts/CategoryBreakdown';
 import { SpendingTrends } from './charts/SpendingTrends';
 import { BudgetOverview } from './charts/BudgetOverview';

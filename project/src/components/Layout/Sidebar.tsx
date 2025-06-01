@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Home, TrendingUp, Calculator, LineChart, ChevronLeft, ChevronRight, Menu, Wallet } from 'lucide-react';
+import { Home, TrendingUp, Calculator, ChevronLeft, ChevronRight, Menu, Wallet } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface SidebarProps {
-  selectedModule: string | null;
   onModuleSelect: (moduleId: string | null) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect }) => {
+const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();

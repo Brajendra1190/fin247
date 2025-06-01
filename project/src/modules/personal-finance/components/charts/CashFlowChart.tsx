@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AreaChart,
   Area,
@@ -17,11 +16,10 @@ interface Props {
     income: number;
     expenses: number;
   }>;
-  timeframe: 'day' | 'week' | 'month' | 'year';
   currency: string;
 }
 
-export function CashFlowChart({ data, timeframe, currency }: Props) {
+export function CashFlowChart({ data, currency }: Props) {
   const processedData = data.map((item, index) => {
     const cumulative = data
       .slice(0, index + 1)
@@ -61,7 +59,7 @@ export function CashFlowChart({ data, timeframe, currency }: Props) {
             y={0}
             stroke="#666"
             strokeDasharray="3 3"
-            label={null}
+            label={undefined}
             segment={[]}
             ifOverflow="extendDomain"
           />

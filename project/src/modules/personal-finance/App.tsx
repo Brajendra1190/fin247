@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Wallet, Calendar, PieChart, TrendingUp, Receipt, Clock } from 'lucide-react';
+import { useState } from 'react';
+import { Wallet, PieChart, TrendingUp, Receipt, Clock } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import TransactionManager from './components/TransactionManager';
 import RecurringTransactions from './components/RecurringTransactions';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FinancialStatement, FinancialRatios } from '../../types/financial';
 import { calculateRatios } from '../../utils/ratioCalculations';
 import FinancialInput from '../../components/FinancialInput';

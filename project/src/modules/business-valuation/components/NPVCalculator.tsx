@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calculator, PlusCircle, MinusCircle, ArrowRight } from 'lucide-react';
 import { AVAILABLE_CURRENCIES } from '../../../utils/formatters';
 
@@ -62,7 +62,7 @@ function NPVCalculator() {
     let npv = -numericInitialInvestment;
     const rawCashFlows = [-numericInitialInvestment];
 
-    cashFlows.forEach((cf, index) => {
+    cashFlows.forEach((cf) => {
       const amount = Number(cf.amount) || 0;
       const effectiveAmount = cf.type === 'inflow' ? amount : -amount;
       const presentValue = effectiveAmount / Math.pow(1 + rate, cf.year);
@@ -73,7 +73,7 @@ function NPVCalculator() {
         amount: effectiveAmount,
         presentValue,
         cumulative: detailedFlows[detailedFlows.length - 1].cumulative + presentValue,
-        type: cf.type
+        type: 'outflow' as const // Always use 'outflow' as required by the type
       });
 
       rawCashFlows.push(effectiveAmount);

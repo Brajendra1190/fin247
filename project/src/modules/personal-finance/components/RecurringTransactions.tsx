@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2 } from 'lucide-react';
 import { useTransactions } from '../context/TransactionContext';
 import { RecurringTransaction } from '../types';
 import RecurringTransactionModal from './RecurringTransactionModal';
 import { formatCurrency } from '../../../utils/formatters';
+import { useState, useEffect } from 'react';
 
 function RecurringTransactions() {
   const { state, dispatch } = useTransactions();
@@ -112,7 +112,7 @@ function RecurringTransactions() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <span className={transaction.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
-                        {formatCurrency(transaction.amount, transaction.currency || globalCurrency)}
+                        {formatCurrency(transaction.amount, globalCurrency)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white capitalize">
