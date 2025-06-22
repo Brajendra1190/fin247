@@ -40,6 +40,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
       icon: Wallet,
       description: 'Personal Finance Management',
       path: '/personal-finance'
+    },
+    {
+      id: 'crm',
+      name: 'CRM',
+      icon: Calculator, // You can replace with a more appropriate icon if desired
+      description: 'Customer Relationship Management',
+      path: '/crm'
     }
   ];
 

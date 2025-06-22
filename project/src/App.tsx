@@ -11,6 +11,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import ResetPassword from './components/auth/ResetPassword';
 import { Toaster } from 'react-hot-toast';
+import CRMApp from './modules/crm/CRMApp';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/financial-dashboard" element={<FinancialDashboard />} />
             <Route path="/business-valuation" element={<BusinessValuation />} />
             <Route path="/personal-finance" element={<PersonalFinance />} />
+            <Route path="/crm" element={<CRMApp />} />
           </Routes>
         </main>
       </div>
