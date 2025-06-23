@@ -1,21 +1,21 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDcuZVuxiq20SUZYaWmu4atBNf-ynPXXCk",
-  authDomain: "finalyzepro.firebaseapp.com",
-  projectId: "finalyzepro",
-  storageBucket: "finalyzepro.appspot.com",
-  messagingSenderId: "416026873897",
-  appId: "1:416026873897:web:2f7347f3c32e7d36488c38",
-  measurementId: "G-593JLMR2X1"
+  apiKey: "AIzaSyBD3VHv0qsSWFT2owNNNQpIjA6kY3GR3Oc",
+  authDomain: "chai-61ebd.firebaseapp.com",
+  projectId: "chai-61ebd",
+  storageBucket: "chai-61ebd.appspot.com",
+  messagingSenderId: "907556775279",
+  appId: "1:907556775279:web:48d115f85983bc3060749a",
+  measurementId: "G-CCGTM7NTSD"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize services
+export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 

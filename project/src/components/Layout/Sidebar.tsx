@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
     {
       id: 'crm',
       name: 'CRM',
-      icon: Calculator, // You can replace with a more appropriate icon if desired
+      icon: ChevronRight, // Use a default icon or previous icon, not CRM image
       description: 'Customer Relationship Management',
       path: '/crm'
     }
@@ -97,6 +97,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
           </button>
 
           {/* Logo */}
+          {/* Removed database image from center/top, only FinAnalytics text and logo remain */}
           <button 
             onClick={() => handleModuleSelect('home', '/')}
             className={`flex items-center gap-3 mb-8 hover:opacity-80 transition-opacity ${isCollapsed ? 'justify-center' : ''}`}
@@ -110,19 +111,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
-            <span className={`text-xl font-bold text-gray-900 dark:text-white whitespace-nowrap transition-all duration-300 ${
-              isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'w-auto opacity-100'
-            }`}>
-              FinAnalytics
-            </span>
           </button>
           
           {/* Navigation */}
           <nav className="space-y-6">
             {modules.map((module) => {
-              const Icon = module.icon;
               const isActive = location.pathname === module.path;
-              
               return (
                 <button
                   key={module.id}
@@ -133,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onModuleSelect }) => {
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                   }`}
                 >
-                  <Icon className="h-7 w-7" />
+                  {React.createElement(module.icon, { className: 'h-7 w-7' })}
                   {isCollapsed ? (
                     <span className="text-xs text-center px-1">
                       {module.name.split(' ')[0]}
